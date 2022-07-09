@@ -19,6 +19,7 @@ func newUsecases(cfg config.Config, repos *Repos) *Usecases {
 	uc := &Usecases{
 		KantinUC: kantinUC,
 	}
+	
 	return uc
 }
 

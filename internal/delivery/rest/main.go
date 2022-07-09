@@ -17,5 +17,8 @@ func Start(app *app.SeminarApp) {
 	srv.DELETE("/product/:product_slug", svc.DeleteProductHandler)
 	srv.PATCH("/balance", svc.UpdateCanteenBalanceHandler)
 
+	srv.POST("/user", svc.CreateUserHandler)
+	srv.POST("/user/login", svc.LoginUserHandler)
+
 	server.Start(srv, &app.Cfg.Server)
 }

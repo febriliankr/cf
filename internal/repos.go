@@ -8,4 +8,6 @@ type KantinRepo interface {
 	GetProductList(in entities.GetProductListRequest) (entities.GetProductListResponse, error)
 	DeleteProduct(in entities.DeleteProductRequest) (entities.DeleteProductResponse, error)
 	UpdateCanteenBalance(in entities.UpdateCanteenBalanceRequest) (entities.UpdateCanteenBalanceResponse, error)
+	CreateUser(in entities.CreateUserRequest) (entities.CreateUserResponse, error)
+	GetUser(in entities.GetUserRequest) (entities.GetUserResponse, error)
 }

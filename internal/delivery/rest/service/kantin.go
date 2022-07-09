@@ -161,6 +161,6 @@ func generateCookie(tokenKey string, tokenValue string) *http.Cookie {
 	cookie.Value = tokenValue
 	cookie.HttpOnly = true
 	cookie.Path = "/"
-	cookie.Expires = time.Now().Add(7 * 24 * time.Hour)
+	cookie.Expires = time.Now().Add(3 * 24 * time.Hour)
 	return cookie
 }

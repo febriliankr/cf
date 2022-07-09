@@ -20,5 +20,8 @@ func Start(app *app.SeminarApp) {
 	srv.POST("/user", svc.CreateUserHandler)
 	srv.POST("/user/login", svc.LoginUserHandler)
 
+	// serve /public as static files
+	srv.Static("/", "./public")
+
 	server.Start(srv, &app.Cfg.Server)
 }

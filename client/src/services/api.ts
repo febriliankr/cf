@@ -25,8 +25,8 @@ async function register(student_id: string, password: string) {
   return data;
 }
 
-async function getList() {
-  const { data } = await api.get("/product");
+async function getList(sortBy: string = "created_at", order: string = "desc") {
+  const { data } = await api.get(`/product?sort_by=${sortBy}&order=${order}`);
   return data.products || [];
 }
 

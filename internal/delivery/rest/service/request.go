@@ -36,7 +36,7 @@ func getPagination(c echo.Context) (int64, int64) {
 	return int64(page), int64(limit)
 }
 
-func getSortBy(c echo.Context) (string, string) {
+func getSortByAndOrder(c echo.Context) (string, string) {
 	sortBy := c.QueryParam("sort_by")
 	orderBy := c.QueryParam("order")
 

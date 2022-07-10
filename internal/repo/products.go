@@ -2,6 +2,7 @@ package repo
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/febriliankr/go-cfstore-api/internal/entities"
 	"github.com/jmoiron/sqlx"
@@ -78,7 +79,9 @@ func (r *KantinDB) GetProductList(in entities.GetProductListRequest) (entities.G
 	SELECT product_id, name, description, product_slug, price, image_url 
 	FROM product
 	WHERE hidden = false
-	ORDER BY %v, %v LIMIT $1 OFFSET $2  `, in.SortBy, in.SortBy)
+	ORDER BY %v %v LIMIT $1 OFFSET $2  `, in.SortBy, in.SortOrder)
+
+	log.Println(queryGetProductList)
 
 	rows, err := r.Db.Queryx(queryGetProductList, in.Limit, offset)
 

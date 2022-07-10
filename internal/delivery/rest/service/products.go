@@ -69,12 +69,12 @@ func (s *KantinService) GetProductListHandler(c echo.Context) error {
 
 	page, limit := getPagination(c)
 
-	sortBy, orderBy := getSortBy(c)
+	sortBy, order := getSortByAndOrder(c)
 
 	req.Page = page
 	req.Limit = limit
 	req.SortBy = sortBy
-	req.SortOrder = orderBy
+	req.SortOrder = order
 
 	if err := c.Bind(&req); err != nil {
 		return ResponseError(c, http.StatusBadRequest, err)

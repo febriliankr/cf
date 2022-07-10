@@ -15,6 +15,23 @@ Login as:
 
 For running this project, you need to setup Postgres with uuid-ossp and pgcrypto extension, go and nodejs.
 
+### Environment Variables
+
+create a .env file filled with S3 bucket keys and postgres URL
+
+```
+AWS_REGION=
+AWS_ACCESS_KEY_ID=
+AWS_SECRET_KEY=
+BUCKET_NAME=
+
+DATABASE_URL=
+DATABASE_DRIVER=postgres
+DATABASE_MAX_CONNS=
+DATABASE_MAX_IDLE=
+
+```
+
 ### Postgres Setup
 
 ```
@@ -63,10 +80,10 @@ Here is the implementation example:
 
 ```
 const uploadRes = await storeAPI.products.upload(file);
-const req = await storeAPI.balance.add(5000);
-const req = await storeAPI.balance.withdraw(5000);
-const req = await storeAPI.purchase(product_slug);
-const res = await storeAPI.products.create(body);
+const req = await storeAPI.balance.add(5000, token);
+const req = await storeAPI.balance.withdraw(5000, token);
+const req = await storeAPI.purchase(product_slug, token);
+const res = await storeAPI.products.create(body, token);
 const token = await storeAPI.user.login(form.student_id, form.password);
 const req = await storeAPI.user.register(form.student_id, form.password);
 ```

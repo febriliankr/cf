@@ -25,12 +25,13 @@ function Container({ title, children, className = "" }: Props): ReactElement {
     withdraw: false,
   });
 
+  const [amount, setAmount] = useState(5000);
   async function handleAddBalance(e: any) {
     e.preventDefault();
     if (loadingButton.add) return;
     try {
       setLoadingButton({ ...loadingButton, add: true });
-      const req = await storeAPI.balance.add(5000, cookies.token);
+      const req = await storeAPI.balance.add(amount, cookies.token);
       console.log(req);
       refetch();
       setLoadingButton({ ...loadingButton, add: false });
@@ -44,7 +45,7 @@ function Container({ title, children, className = "" }: Props): ReactElement {
     if (loadingButton.withdraw) return;
     try {
       setLoadingButton({ ...loadingButton, withdraw: true });
-      const req = await storeAPI.balance.withdraw(5000, cookies.token);
+      const req = await storeAPI.balance.withdraw(amount, cookies.token);
       console.log(req);
       refetch();
       setLoadingButton({ ...loadingButton, withdraw: false });
@@ -84,8 +85,10 @@ function Container({ title, children, className = "" }: Props): ReactElement {
         balance={balance}
         handleAddBalance={handleAddBalance}
         handleWithdrawBalance={handleWithdrawBalance}
+        amount={amount}
+        setAmount={setAmount}
       />
-      <div className={classNames("mt-44 sm:mt-40 px-3", className)}>
+      <div className={classNames("mt-64 sm:mt-56 px-3", className)}>
         {children}
       </div>
       <Footer student_id={student_id} />

@@ -30,7 +30,7 @@ function Products({ data }: any) {
   return (
     <div className="mb-8">
       <h1 className="w-full mb-10 text-3xl font-bold text-center">Products 🎧</h1>
-      {data.length === 0 && <div className="w-full p-3 text-yellow-800 bg-yellow-100 border border-yellow-400">No products yet, you can add products as long as you're logged in!</div>}
+      {data.length === 0 && <div className="w-full p-3 text-yellow-800 bg-yellow-100 border border-yellow-400">No products yet 😰, you can add products as long as you're logged in!</div>}
       {data.map((product: any) => (
         <Link key={product.product_slug} href={"/" + product.product_slug}>
           <a className="">

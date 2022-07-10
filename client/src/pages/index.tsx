@@ -18,7 +18,6 @@ function Home({}: Props): ReactElement {
   const [ascending, setAscending] = useState(false);
   const { data } = useQuery(["productList", sortBy, ascending], async () => {
     const order = ascending ? "asc" : "desc";
-    console.log("order", order);
     return storeAPI.products.getList(sortBy, order);
   });
 

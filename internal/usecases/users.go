@@ -61,7 +61,7 @@ func (uc *KantinUsecase) GetUser(in entities.GetUserRequest) (entities.GetUserRe
 	res, err := uc.repo.GetUser(in)
 
 	if err != nil {
-		return res, err
+		return res, errors.New("user does not exist")
 	}
 
 	// hashedInputPW, err := helper.Generate(in.Password)
@@ -69,6 +69,7 @@ func (uc *KantinUsecase) GetUser(in entities.GetUserRequest) (entities.GetUserRe
 	if err != nil {
 		return res, err
 	}
+
 	err = helper.Compare(res.Password, in.Password)
 
 	if err != nil {

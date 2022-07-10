@@ -4,8 +4,16 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/febriliankr/go-cfstore-api/internal/entities"
+	"github.com/febriliankr/go-cfstore-api/internal/helper"
 	"github.com/labstack/echo/v4"
 )
+
+func getUserByBererToken(c echo.Context) (entities.GetUserJWT, error) {
+	token := getBearerToken(c)
+	user, err := helper.ParseUserByJWT(token)
+	return user, err
+}
 
 func getBearerToken(c echo.Context) string {
 	reqToken := c.Request().Header.Get("Authorization")

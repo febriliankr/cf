@@ -19,4 +19,8 @@ type (
 		StudentID int64  `json:"student_id,omitempty" db:"student_id"`
 		Password  string `json:"-" db:"password"`
 	}
+
+	GetUserJWT struct {
+		StudentID int64 `json:"student_id,omitempty" db:"student_id"`
+	}
 )

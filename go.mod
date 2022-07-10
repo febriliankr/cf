@@ -5,7 +5,6 @@ go 1.18
 require (
 	github.com/aws/aws-sdk-go v1.44.37
 	github.com/caarlos0/env/v6 v6.9.3
-	github.com/febriliankr/go-cfstore-api v0.0.0-20220511193344-7c01e16a7494
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/go-playground/validator/v10 v10.11.0
 	github.com/go-sql-driver/mysql v1.6.0
@@ -21,6 +20,8 @@ require (
 	github.com/go-playground/locales v0.14.0 // indirect
 	github.com/go-playground/universal-translator v0.18.0 // indirect
 	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
+	github.com/gosimple/slug v1.12.0 // indirect
+	github.com/gosimple/unidecode v1.0.1 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/labstack/gommon v0.3.1 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect

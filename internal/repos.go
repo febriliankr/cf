@@ -10,4 +10,6 @@ type KantinRepo interface {
 	UpdateCanteenBalance(in entities.UpdateCanteenBalanceRequest) (entities.UpdateCanteenBalanceResponse, error)
 	CreateUser(in entities.CreateUserRequest) (entities.CreateUserResponse, error)
 	GetUser(in entities.GetUserRequest) (entities.GetUserResponse, error)
+	CreatePurchase(in entities.CreatePurchaseRequest) (entities.CreatePurchaseResponse, error)
+	CheckCanteenBalance(in entities.CheckCanteenBalanceRequest) (entities.CheckCanteenBalanceResponse, error)
 }

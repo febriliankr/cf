@@ -8,7 +8,7 @@ import (
 
 func ResponseOK(c echo.Context, code int, data interface{}) error {
 	c.Response().Header().Set(echo.HeaderContentType, echo.MIMEApplicationJSONCharsetUTF8)
-	c.Response().Header().Set(echo.HeaderCookie, "")
+	// c.Response().Header().Set(echo.HeaderCookie, "")
 
 	c.Response().WriteHeader(code)
 	return json.NewEncoder(c.Response()).Encode(data)

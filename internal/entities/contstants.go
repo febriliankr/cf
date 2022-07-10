@@ -5,7 +5,7 @@ type UpdateBalanceType struct {
 	Deposit    string
 }
 
-var UpdateBalanceTypes = UpdateBalanceType{
-	Withdrawal: "withdrawal",
+var UpdateBalance = UpdateBalanceType{
+	Withdrawal: "withdraw",
 	Deposit:    "deposit",
 }

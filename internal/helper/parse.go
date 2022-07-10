@@ -6,14 +6,13 @@ import (
 	"os"
 
 	"github.com/febriliankr/go-cfstore-api/internal/entities"
-	"github.com/jmoiron/sqlx"
 	"github.com/labstack/echo/v4"
 
 	"github.com/golang-jwt/jwt"
 )
 
-func ParseUserCookie(c echo.Context, db *sqlx.DB) (entities.GetUserResponse, error) {
-	var user entities.GetUserResponse
+func ParseUserCookie(c echo.Context) (entities.GetUserJWT, error) {
+	var user entities.GetUserJWT
 	cookies := c.Cookies()
 
 	if len(cookies) == 0 {
@@ -31,8 +30,8 @@ func ParseUserCookie(c echo.Context, db *sqlx.DB) (entities.GetUserResponse, err
 	return user, nil
 }
 
-func ParseUserByJWT(tokenStr string) (entities.GetUserResponse, error) {
-	var res entities.GetUserResponse
+func ParseUserByJWT(tokenStr string) (entities.GetUserJWT, error) {
+	var res entities.GetUserJWT
 
 	jwtToken, err := jwt.Parse(tokenStr, keyFunction)
 
@@ -67,16 +66,16 @@ func keyFunction(token *jwt.Token) (interface{}, error) {
 	return hmacSecret, nil
 }
 
-func parseClaims(claims jwt.MapClaims) (entities.GetUserResponse, error) {
-	var user entities.GetUserResponse
+func parseClaims(claims jwt.MapClaims) (entities.GetUserJWT, error) {
+	var user entities.GetUserJWT
 
-	parsedUser, ok := claims["student_id"].(int64)
+	parsedUser, ok := claims["student_id"].(float64)
 
 	if !ok {
-		return user, errors.New("email not found")
+		return user, fmt.Errorf("invalid claims")
 	}
 
-	user.StudentID = parsedUser
+	user.StudentID = int64(parsedUser)
 
 	return user, nil
 }

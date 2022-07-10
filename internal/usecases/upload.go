@@ -14,7 +14,7 @@ import (
 	"github.com/febriliankr/go-cfstore-api/internal/services"
 )
 
-func UploadMultipleFiles(in entities.UploadMultipleFilesRequest) ([]string, error) {
+func (uc *KantinUsecase) UploadMultipleFiles(in entities.UploadMultipleFilesRequest) ([]string, error) {
 
 	var s3Urls []string
 

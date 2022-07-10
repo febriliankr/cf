@@ -20,12 +20,14 @@ func New() *echo.Echo {
 	e.Use(md.CORSWithConfig(md.CORSConfig{
 		AllowOrigins:     []string{"*"},
 		MaxAge:           86400,
-		AllowMethods:     []string{"POST", "GET", "PUT", "DELETE", "PATCH", "HEAD"},
+		AllowMethods:     []string{echo.GET, echo.HEAD, echo.PUT, echo.PATCH, echo.POST, echo.DELETE, echo.OPTIONS},
 		AllowHeaders:     []string{"*"},
 		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}), middleware.Headers())
+
 	e.GET("/health", healthCheck)
+
 	e.Pre(md.RemoveTrailingSlash())
 	e.Validator = &CustomValidator{V: validator.New()}
 	customErr := &customErrHandler{e: e}

@@ -4,15 +4,16 @@ type (
 	CreateProductRequest struct {
 		Name        string `json:"name,omitempty" db:"name" validate:"required"`
 		Description string `json:"description,omitempty" db:"description" validate:"required"`
-		ProductSlug string `json:"product_slug,omitempty" db:"product_slug" validate:"required"`
+		ProductSlug string `json:"product_slug,omitempty" db:"product_slug"`
 		Price       int64  `json:"price,omitempty" db:"price" validate:"required"`
 		ImageURL    string `json:"image_url,omitempty" db:"image_url" validate:"required"`
 		StudentID   int64  `json:"student_id,omitempty" db:"student_id" validate:"required"`
 		Hidden      bool   `json:"hidden,omitempty" db:"hidden"`
 	}
-	
+
 	CreateProductResponse struct {
-		ProductID string `json:"product_id,omitempty" db:"product_id"`
+		ProductID   string `json:"product_id,omitempty" db:"product_id"`
+		ProductSlug string `json:"product_slug,omitempty" db:"product_slug"`
 	}
 )
 
@@ -50,16 +51,5 @@ type (
 	}
 
 	DeleteProductResponse struct {
-	}
-)
-
-type (
-	UpdateCanteenBalanceRequest struct {
-		UID    string `json:"uid,omitempty" db:"uid"`
-		Amount int64  `json:"amount,omitempty" db:"amount"`
-		Type   string `json:"type,omitempty" db:"type"`
-	}
-
-	UpdateCanteenBalanceResponse struct {
 	}
 )

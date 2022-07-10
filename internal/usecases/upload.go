@@ -65,8 +65,7 @@ func UploadFile(file *multipart.FileHeader, key services.AwsKeys, directory stri
 		return s3Url, err
 	}
 
-	extension, _ := fileNameExtension(filename)
-	s3FileDestination := directory + "/" + filename + extension
+	s3FileDestination := directory + "/" + filename
 
 	_, err = services.UploadFilePublic(sess, tmpFileDir, s3FileDestination)
 

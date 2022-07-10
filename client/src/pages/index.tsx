@@ -112,7 +112,7 @@ function Products({ data, sortBy, setSortBy, ascending, setAscending }: any) {
           <a className="">
             <div className="flex flex-col justify-between p-4 mb-8 border hover:bg-slate-50 sm:flex-row rounded-2xl">
               <div>
-                <div className="mb-2 text-5xl font-bold">{product.name}</div>
+                <div className="mb-2 text-5xl">{product.name}</div>
                 <div className="mb-2 text-lg">{product.description}</div>
                 <div className="mb-4 text-lg">IDR {commafy(product.price)}</div>
               </div>

@@ -12,8 +12,6 @@ import (
 
 func (s *KantinService) UploadFileHandler(c echo.Context) error {
 
-	log.Println("called")
-
 	appName := s.config.Server.UserTokenName
 
 	form, err := c.MultipartForm()

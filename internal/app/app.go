@@ -7,21 +7,20 @@ import (
 	"github.com/pkg/errors"
 )
 
-type SeminarApp struct {
+type StoreApp struct {
 	Repos    *Repos
 	Usecases *Usecases
-
-	Cfg config.Config
+	Cfg      config.Config
 }
 
-// NewSeminarApp Initialize app and do dependency injection for all layers
-func NewSeminarApp() (*SeminarApp, error) {
+// NewStoreApp Initialize app and do dependency injection for all layers
+func NewStoreApp() (*StoreApp, error) {
 	cfg, err := readConfig()
 	if err != nil {
 		return nil, errors.Wrapf(err, "error getting config")
 	}
 
-	app := new(SeminarApp)
+	app := new(StoreApp)
 
 	app.Cfg = cfg
 
@@ -38,7 +37,7 @@ func NewSeminarApp() (*SeminarApp, error) {
 	return app, nil
 }
 
-func (a *SeminarApp) Close() []error {
+func (a *StoreApp) Close() []error {
 	var errs []error
 	errs = append(errs, a.Repos.Close()...)
 	errs = append(errs, a.Usecases.Close()...)

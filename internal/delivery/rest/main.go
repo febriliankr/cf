@@ -7,7 +7,7 @@ import (
 )
 
 // Start server
-func Start(app *app.SeminarApp) {
+func Start(app *app.StoreApp) {
 	srv := server.New()
 	svc := service.GetServices(app)
 

@@ -16,7 +16,7 @@ func main() {
 	}
 
 	// init app
-	ShipmentApp, err := app.NewSeminarApp()
+	ShipmentApp, err := app.NewStoreApp()
 	if err != nil {
 		log.Fatal(err)
 	}

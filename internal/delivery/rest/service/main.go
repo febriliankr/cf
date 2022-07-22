@@ -8,7 +8,7 @@ type Services struct {
 	*KantinService
 }
 
-func GetServices(app *app.SeminarApp) *Services {
+func GetServices(app *app.StoreApp) *Services {
 	return &Services{
 		KantinService: NewKantinService(app),
 	}

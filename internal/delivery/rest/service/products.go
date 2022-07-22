@@ -15,7 +15,7 @@ type KantinService struct {
 	config config.Config
 }
 
-func NewKantinService(app *app.SeminarApp) *KantinService {
+func NewKantinService(app *app.StoreApp) *KantinService {
 	return &KantinService{
 		uc:     app.Usecases.KantinUC,
 		config: app.Cfg,
